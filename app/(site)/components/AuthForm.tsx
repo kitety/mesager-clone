@@ -5,6 +5,7 @@ import Input from "@/app/components/input/Input";
 import Button from "@/app/components/Button";
 import AuthSocialButton from "@/app/components/AuthSocialButton";
 import { BsGithub, BsGoogle } from "react-icons/bs";
+import axios from "axios";
 
 type Variant = "LOGIN" | "REGISTER";
 const AuthForm = () => {
@@ -28,11 +29,13 @@ const AuthForm = () => {
       password: "",
     },
   });
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     console.log(data);
     setIsLoading(true);
     if (variant === "REGISTER") {
       // axios register
+      const res = await axios.post("/api/register", data);
+      console.log(res);
     } else {
       // NextAuth SignIn
     }
