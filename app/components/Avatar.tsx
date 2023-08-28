@@ -20,7 +20,7 @@ const Avatar: FC<AvatarProps> = ({ user }) => {
       </div>
       <span
         className={
-          "absolute block rounded-full bg-green-500 ring-2 top-0 h-2 w-2 md:h-3 md:w-3"
+          "absolute block rounded-full bg-green-500 right-0 ring-2 top-0 h-2 w-2 md:h-3 md:w-3"
         }
       />
     </div>
