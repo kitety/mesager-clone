@@ -35,7 +35,6 @@ const AuthForm = () => {
     },
   });
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log(data);
     setIsLoading(true);
     if (variant === "REGISTER") {
       // axios register
@@ -58,7 +57,6 @@ const AuthForm = () => {
         redirect: false,
       })
         .then((callback) => {
-          console.log(callback);
           if (callback?.error) {
             toast.error("Invalid Credentials");
           } else if (callback?.ok) {
@@ -77,7 +75,6 @@ const AuthForm = () => {
       redirect: false,
     })
       .then((callback) => {
-        console.log(callback);
         if (callback?.error) {
           toast.error("Invalid Credentials");
         } else if (callback?.ok) {
@@ -91,7 +88,6 @@ const AuthForm = () => {
   };
 
   useEffect(() => {
-    console.log({ session });
     if (session?.status === "authenticated") {
       router.push("/users");
     }

@@ -8,7 +8,7 @@ interface AvatarProps {
 }
 
 const Avatar: FC<AvatarProps> = ({ user }) => {
-  console.log({ user });
+  console.log({ user }, "avatar");
   return (
     <div className={"relative"}>
       <div
@@ -16,7 +16,11 @@ const Avatar: FC<AvatarProps> = ({ user }) => {
           "relative inline-block rounded-full overflow-hidden h-9 w-9 md:h-11 md:w-11"
         }
       >
-        <Image src={user?.image || "/placeholder.jpg"} alt={"Avatar"} fill />
+        <Image
+          src={user?.image || "/images/placeholder.jpg"}
+          alt={"Avatar"}
+          fill
+        />
       </div>
       <span
         className={
