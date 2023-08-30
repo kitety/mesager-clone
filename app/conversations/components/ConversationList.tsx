@@ -1,11 +1,11 @@
 "use client";
-import { FC, useState } from "react";
-import { FullConversationType } from "@/app/types";
-import { useRouter } from "next/navigation";
-import useConversation from "@/app/hooks/useConversation";
-import clsx from "clsx";
-import { MdOutlineGroupAdd } from "react-icons/md";
 import ConversationBox from "@/app/conversations/components/ConversationBox";
+import useConversation from "@/app/hooks/useConversation";
+import { FullConversationType } from "@/app/types";
+import clsx from "clsx";
+import { useRouter } from "next/navigation";
+import { FC, useState } from "react";
+import { MdOutlineGroupAdd } from "react-icons/md";
 
 interface ConversationListProps {
   initialItems: FullConversationType[];
@@ -14,6 +14,7 @@ interface ConversationListProps {
 const ConversationList: FC<ConversationListProps> = ({ initialItems }) => {
   const [items, setItems] = useState<FullConversationType[]>(initialItems);
   const router = useRouter();
+  console.log({ items });
   const { conversationId, isOpen } = useConversation();
   return (
     <aside
