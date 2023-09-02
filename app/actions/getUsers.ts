@@ -9,7 +9,7 @@ const getUser = async () => {
   try {
     const users = await prismaClient.user.findMany({
       orderBy: {
-        createAt: "desc",
+        createdAt: "desc",
       },
       where: {
         NOT: {
