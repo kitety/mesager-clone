@@ -2,7 +2,8 @@
 import MessageBox from "@/app/conversations/[conversationId]/components/MessageBox";
 import useConversation from "@/app/hooks/useConversation";
 import { FullMessageType } from "@/app/types";
-import { FC, useRef, useState } from "react";
+import axios from "axios";
+import { FC, useEffect, useRef, useState } from "react";
 
 interface IBodyProps {
   initialMessages: FullMessageType[];
@@ -13,6 +14,9 @@ const Body: FC<IBodyProps> = ({ initialMessages }) => {
 
   const bottomRef = useRef<HTMLDivElement>(null);
   const { conversationId, isOpen } = useConversation();
+  useEffect(() => {
+    axios.post(`/api/conversations/${conversationId}/seen`);
+  }, [conversationId]);
   return (
     <div className={"flex-1 overflow-y-auto"}>
       {messages.map((message, index) => {
